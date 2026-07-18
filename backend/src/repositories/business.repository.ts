@@ -15,7 +15,9 @@ export async function createBusiness(
 ){
     const { rows } = await query<Business>(
         `INSERT INTO businesses(name, email, phone, staff_no, location, logo, description)
-        VALUES($1, $2, $3, $4, $5, $6, $7)`,
+        VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
         [data.name, data.email, data.phone, data.staff_no, data.location, data.logo, data.description]
     );
+
+    return rows[0];
 }

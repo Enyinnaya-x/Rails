@@ -1,4 +1,4 @@
-import { LoginUserRequest, RegisterUserRequest, RegisterBusinessRequest } from "../validators/auth.validator";
+import { LoginUserRequest, RegisterUserRequest } from "../validators/auth.validator";
 import { findUserByEmail } from "../repositories/user.repository";
 import { AppError } from "../utils/AppError";
 import { comparePassword, hashPassword } from "../utils/hash";
@@ -7,25 +7,6 @@ import { generateRefreshToken, generateToken } from "../utils/jwt";
 import { storeRefreshToken } from "../repositories/refreshToken.repository";
 import { env } from "../config/env";
 import { normalizeNigerianPhone } from "../utils/normalizePhone";
-import { findBusinessByEmail, createBusiness } from "../repositories/business.repository";
-
-//register business
-export async function registerBusiness(data: RegisterBusinessRequest){
-    //check if business is already registered
-    const existingBusiness = await findBusinessByEmail(data.email);
-
-    if(existingBusiness){
-        throw new AppError('This business is already registered.', 409);
-    }
-
-    const businessData = {
-        ...data,
-        phone: normalizeNigerianPhone(data.phone)
-    };
-
-    await createBusiness(businessData);
-    
-}
 
 // register User like admins or super_admins 
 export async function registerUser(data: RegisterUserRequest){
@@ -56,8 +37,11 @@ export async function loginUser(data: LoginUserRequest){
         throw new AppError('Invalid credentials', 401);
     }
 
+
+    const isMatch = await comparePassword(data.password, existingUser.password);
+
     //check if the passwords match
-    if(!await comparePassword(data.password, existingUser.password)){
+    if(!isMatch){
          throw new AppError('Invalid credentials', 401);
     }
 

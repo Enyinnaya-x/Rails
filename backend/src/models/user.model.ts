@@ -3,6 +3,7 @@ export interface User{
     business_id: number;
     full_name: string;
     email: string;
+    phone: string;
     password: string;
     position: string;
     role: 'admin' | 'super_admin';

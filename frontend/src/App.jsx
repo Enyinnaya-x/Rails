@@ -1,9 +1,7 @@
+import LandingPage from "./pages/Landing/LandingPage";
+
 function App() {
-  return (
-    <div>
-      <h1>Rails Dashboard</h1>
-    </div>
-  );
+  return <LandingPage />;
 }
 
 export default App;

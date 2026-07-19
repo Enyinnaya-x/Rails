@@ -182,7 +182,7 @@
 .dashboard-pattern {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: image('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><path d="M16 0v32M0 16h32" stroke="%23E5E7EB" stroke-width="1"/></svg>');
+  /* background-image: image('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><path d="M16 0v32M0 16h32" stroke="%23E5E7EB" stroke-width="1"/></svg>'); */
   background-size: 32px 32px; /* Modern structural grid */
   opacity: 0.15;
 }

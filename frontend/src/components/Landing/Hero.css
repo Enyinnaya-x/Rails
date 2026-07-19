@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Redefining Core Variables used in Navbar for consistency */
+:root {
+  --primary: #0564FF;
+  --primary-hover: #0454D6;
+  --background: #FFFFFF;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  
+  /* Shared Shadow System */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 8px 24px rgba(124, 58, 237, 0.15); /* Primary button shadow */
+  --shadow-lg: 0 20px 48px rgba(0,0,0,0.08); /* Card/Mockup shadow */
+}
+
+/* Core Hero Section Layout */
+.rails-hero {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  position: relative;
+  overflow: hidden; /* Necessary for background glow */
+  padding: 100px 0; /* Breathing room top/bottom */
+}
+
+/* Specific Purple Ambient Glow (Unique Background Detail) */
+.hero-glow-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: -150px;
+  top: -100px;
+  border-radius: 50%;
+  background: rgba(5, 100, 255, 0.10); /* Subtle blue tint */
+  filter: blur(120px);
+  z-index: 0; /* Behind all content */
+  pointer-events: none; /* Interactive items only */
+}
+
+/* Layout Container (Matching Navbar constraints) */
+.hero-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 80px; /* Lots of breathing room */
+  align-items: center;
+  position: relative;
+  z-index: 1; /* Above the background glow */
+}
+
+/* Left Column Styling (Simple & Elegant Typography) */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: rgba(5, 100, 255, 0.10); /* Light purple tint */
+  color: #0564FF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.hero-heading {
+  font-size: 64px; /* Exact size */
+  font-weight: 700; /* Exact weight */
+  color: var(--text);
+  line-height: 1.1; /* Tight spacing for strong headline */
+  letter-spacing: -0.04em; /* Tight kerning for premium feel */
+  margin-bottom: 24px;
+}
+
+.hero-subtext {
+  font-size: 18px; /* Exact size */
+  font-weight: 400; /* Regular weight */
+  color: var(--muted);
+  line-height: 1.6; /* Breathing room for readability */
+  max-width: 580px; /* Controlled width */
+  margin-bottom: 48px; /* Whitespace before buttons */
+}
+
+/* Action Group Styling (Matching exact button specifications) */
+.hero-action-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.btn-primary-hero {
+  font-family: var(--font-sans);
+  background: #0564FF; /* Primary blue */
+  color: #ffffff;
+  border-radius: 12px; /* Exact radius */
+  padding: 14px 22px; /* Exact padding */
+  font-weight: 600; /* Exact weight */
+  font-size: 16px; /* Exact size */
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md); /* Specific primary shadow */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary-hero:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px); /* Simple elevation */
+}
+
+.btn-secondary-hero {
+  font-family: var(--font-sans);
+  background: transparent;
+  color: var(--text);
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-secondary-hero:hover {
+  background-color: rgba(0,0,0,0.03); /* Subtle backdrop tint */
+  transform: translateY(-2px);
+}
+
+/* Scannable Trust Indicators */
+.hero-trust-indicators {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap; /* Safety for small screens */
+}
+
+.trust-item {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Right Column: Premium Visual Interactive Interface */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.interface-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 480px; /* Defined height for floating content constraints */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Dashboard Placeholder (Modern & Structured) */
+.dashboard-main-container {
+  width: 90%;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 24px; /* Extra round premium mockup */
+  box-shadow: var(--shadow-lg); /* Soft ambient shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light background pattern detail inside mockup */
+.dashboard-pattern {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: image('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><path d="M16 0v32M0 16h32" stroke="%23E5E7EB" stroke-width="1"/></svg>');
+  background-size: 32px 32px; /* Modern structural grid */
+  opacity: 0.15;
+}
+
+/* Shared Premium Floating Contextual Cards */
+.floating-card {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Lighter card shadow */
+  /* z-index: 10; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.card-icon {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Specific Card Placements & Details */
+/* Card 1: Employees (Top Right) */
+.card-employees {
+  top: 10%;
+  right: -5%;
+  width: 160px;
+  z-index: translateY(-8px);
+}
+
+.employees-icon {
+  color: var(--primary);
+}
+
+/* Card 2: Payroll (Center Left) */
+.card-payroll {
+  top: 45%;
+  left: -10%;
+  width: 180px;
+  padding: 20px;
+  z-index: translateY(6px);
+
+}
+
+.status-approved {
+  color: #10B981; /* Success Green */
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Card 3: Messages (Bottom Right) */
+.card-messages {
+  bottom: 10%;
+  right: 5%;
+  width: 190px;
+  z-index: translateY(-5px);
+}
+
+.value-suffix {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* CSS Floating Animations System */
+@keyframes float1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(0.5deg); }
+}
+
+/* Apply animations with different offsets/speeds */
+.float-animation-1 { animation: float1 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.float-animation-2 { animation: float2 5s cubic-bezier(0.4, 0, 0.2, 1) infinite; animation-delay: 1s; }
+.float-animation-3 { animation: float3 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; animation-delay: 0.5s; }
+
+/* Responsive Mobile Structure (Single Column Redesign) */
+@media (max-width: 968px) {
+  .rails-hero {
+    padding: 80px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 60px; /* Reduced gap */
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .hero-glow-blob {
+    width: 400px;
+    height: 400px;
+    right: 50%;
+    transform: translateX(50%); /* Center glow behind text */
+  }
+
+  .hero-content {
+    align-items: center; /* Center align content */
+  }
+
+  .content-badge {
+    align-self: center;
+  }
+
+  .hero-heading {
+    font-size: 48px; /* Scale headline down */
+  }
+
+  .hero-subtext {
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-action-group {
+    flex-direction: column; /* Stack buttons */
+    width: 100%;
+    max-width: 320px;
+    gap: 12px;
+  }
+
+  .btn-primary-hero, .btn-secondary-hero {
+    width: 100%;
+  }
+
+  .hero-trust-indicators {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* Adjust visual interface constraints for smaller screens */
+  .interface-wrapper {
+    height: 400px;
+  }
+  
+  .dashboard-main-container {
+    height: 350px;
+  }
+
+  /* Scale floating cards down for mobile */
+  .floating-card {
+    padding: 12px;
+    border-radius: 12px;
+    gap: 6px;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+  }
+
+  .card-value {
+    font-size: 1.1rem;
+  }
+
+  /* Tighten card positions so they remain visible */
+  .card-employees {
+    width: 130px;
+    right: 0%;
+  }
+
+  .card-payroll {
+    width: 150px;
+    left: 0%;
+  }
+
+  .card-messages {
+    width: 160px;
+    right: 5%;
+  }
+}

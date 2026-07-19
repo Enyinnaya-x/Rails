@@ -5,40 +5,44 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="minimal-navbar">
+    <nav className="rails-navbar">
       <div className="nav-container">
-        {/* Logo */}
-        <div className="nav-brand">
-          <span className="brand-dot">✦</span> Rails
+        
+        {/* Elegant Minimalist Logo */}
+        <div className="nav-logo">
+          <span className="logo-marker">◈</span>
+          <span className="logo-text">Rails</span>
         </div>
 
-        {/* Desktop Navigation Links */}
+        {/* Clean, Numberless Navigation Links */}
         <div className={`nav-menu ${isOpen ? 'is-active' : ''}`}>
-          <a href="#features" className="nav-item">Features</a>
-          <a href="#how-it-works" className="nav-item">How It Works</a>
-          <a href="#pricing" className="nav-item">Pricing</a>
+          <a href="#features" className="nav-link">Features</a>
+          <a href="#solutions" className="nav-link">Solutions</a>
+          <a href="#pricing" className="nav-link">Pricing</a>
+          <a href="#contact" className="nav-link">Contact</a>
           
-          {/* Action Button inside menu for mobile view parity */}
-          <div className="mobile-cta">
-            <button className="btn-nav-primary">Register Company</button>
+          {/* Mobile Primary Action */}
+          <div className="mobile-cta-wrapper">
+            <button className="btn-register">Register Company</button>
           </div>
         </div>
 
-        {/* Right Side Call to Action (Desktop) */}
+        {/* Desktop Interface Controls */}
         <div className="nav-actions">
-          <a href="#signin" className="nav-link-secondary">Sign In</a>
-          <button className="btn-nav-primary">Register Company</button>
+          <a href="#signin" className="link-signin">Sign In</a>
+          <button className="btn-register">Register Company</button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Modern Minimal Toggle Button */}
         <button 
-          className={`nav-toggle ${isOpen ? 'is-active' : ''}`} 
+          className={`nav-toggle-burger ${isOpen ? 'open' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
+          aria-label="Toggle Navigation Menu"
         >
-          <span className="bar"></span>
-          <span className="bar"></span>
+          <span className="burger-line"></span>
+          <span className="burger-line"></span>
         </button>
+
       </div>
     </nav>
   );

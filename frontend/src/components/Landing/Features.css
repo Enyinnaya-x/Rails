@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Consistent Design Tokens */
+:root {
+  --primary: #0564FF;
+  --primary-hover: #0452D6;
+  --background:#fafafa;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Core Features Section Layout */
+.features-section {
+  font-family: var(--font-sans);
+  background-color: #fafafa;
+  padding: 150px 0; /* Lots of breathing room / whitespace */
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+
+/* Outer layout wrapper maintaining constraints */
+.features-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+/* Centered Header Block */
+.features-header {
+  text-align: center;
+  max-width: 680px; /* Controls paragraph text layout cleanly */
+  margin: 0 auto 80px auto; /* Centered with deep spacing underneath */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-badge {
+  display: inline-block;
+  background-color: rgba(5, 100, 255, 0.08);
+  color: #0564FF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.features-heading {
+  font-size: 48px; /* Clean scale transition down from Hero's 64px */
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.features-supporting-text {
+  font-size: 18px; /* Matching Hero section copy scaling */
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Robust 3-Column Feature Grid Layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px; /* Breathing space between feature cards */
+}
+
+/* Elegant Feature Card Design */
+.feature-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 16px; /* Smooth rounded interface */
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease;
+}
+
+/* Smooth Interactive Card Hover States */
+.feature-card:hover {
+  border-color: rgba(5, 100, 255, 0.3);
+  transform: .35s ease; /* Sophisticated micro-elevation */
+  box-shadow: 0 12px 32px rgba(5, 100, 255, 0.08);
+}
+
+/* Icon Structural Frame Wrapper */
+.feature-card-icon-wrapper {
+  background-color: rgba(5, 100, 255, 0.06); /* Soft core accent */
+  color: #0564FF;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.feature-card:hover .feature-card-icon-wrapper {
+  background-color:#0564FF; /* Accent flips sharply on hover */
+  color: #FFFFFF; /* Accent flips sharply on hover */
+}
+
+.feature-card-icon {
+  display: block;
+}
+
+.feature-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0564FF;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.feature-card-description {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1; /* Keeps alignment perfect even with variable copy length */
+}
+
+
+
+
+/* Responsive Infrastructure (Fluid Breakpoints) */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* Collapses smoothly to double grid */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    padding: 80px 0;
+  }
+
+  .features-container {
+    padding: 0 24px;
+  }
+
+  .features-header {
+    margin-bottom: 48px;
+  }
+
+  .features-heading {
+    font-size: 36px; /* Dynamic scale reduction for standard mobile viewing */
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* Stacked linear viewport column */
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 32px 24px;
+  }
+}

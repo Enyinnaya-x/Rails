@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Corporate Digital Blue Workspace Variables */
+:root {
+  --primary: #0564FF;
+  --primary-hover: #0452D6;
+  --background: #FFFFFF;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Base Structural Layout Context */
+.how-section {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  padding: 120px 0; /* Consistent whitespace block spacing */
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+/* Reusable Dynamic Section Typography Layout Header */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-badge {
+  display: inline-block;
+  background-color: rgba(5, 100, 255, 0.06); /* Soft blue accent background */
+  color: #0564FF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.section-description {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Onboarding Steps Horizontal Row Framework */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+}
+
+/* Step Card Architecture */
+.step-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+/* Kinetic Step Interaction States */
+.step-card:hover {
+  border-color: rgba(5, 100, 255, 0.3);
+  transform: translateY(-6px); /* Specific step card lift */
+  box-shadow: 0 16px 36px rgba(5, 100, 255, 0.06); /* Accent blue soft shadow */
+}
+
+/* Top Action Component Layout inside Cards */
+.step-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.step-index-marker {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.step-card:hover .step-index-marker {
+  color: var(--text);
+}
+
+.step-icon-frame {
+  color: #0564FF;
+  background-color: rgba(5, 100, 255, 0.06);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              color 0.2s ease;
+}
+
+/* Micro-animation rotational mechanics on parent card focus */
+.step-card:hover .step-icon-frame {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  transform: rotate(5deg); /* Exact 5-degree layout shift */
+}
+
+.step-lucide-icon {
+  display: block;
+}
+
+/* Description & Content Parameters */
+.step-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.step-card-description {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Desk Process Direction Linkage System */
+.step-flow-arrow {
+  position: absolute;
+  right: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--border);
+  font-weight: 400;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Responsive Structural Breakpoints */
+@media (max-width: 1024px) {
+  .steps-grid {
+    gap: 24px;
+  }
+  
+  /* Hide connection flows on smaller bounds to balance visual assets */
+  .step-flow-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 868px) {
+  .how-section {
+    padding: 80px 0;
+  }
+
+  .how-container {
+    padding: 0 24px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr; /* Complete mobile structural stacking */
+    gap: 20px;
+  }
+
+  .step-card {
+    padding: 32px 24px;
+  }
+}

@@ -4,6 +4,7 @@ import Features from "../../components/Landing/features";
 import featuresCard from "../../components/Landing/featureCard";
 import Stats from "../../components/Landing/stats";
 import HowItWorks from "../../components/Landing/howitworks";
+import CTA from "../../components/Landing/CTA";
 
 function landingPage() {
   return (
@@ -14,6 +15,7 @@ function landingPage() {
       <Features />
       <featureCard/>
       <HowItWorks/>
+      <CTA/>
     </>
   );
 }

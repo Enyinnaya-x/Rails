@@ -2,7 +2,7 @@ import { findBusinessByEmail, createBusiness } from "../repositories/business.re
 import { RegisterBusinessRequest } from "../validators/business.validator";
 import { AppError } from "../utils/AppError";
 import { normalizeNigerianPhone } from "../utils/normalizePhone";
-
+import { publishBusinessRegistered } from "../events/publishers/businessEvent.publisher";
 
 //register business
 export async function registerBusiness(data: RegisterBusinessRequest){
@@ -18,6 +18,13 @@ export async function registerBusiness(data: RegisterBusinessRequest){
         phone: normalizeNigerianPhone(data.phone)
     };
 
-    return await createBusiness(businessData);
+
+    //register business in db
+     await createBusiness(businessData);
+
+
+     //send out welcome email
+     return await publishBusinessRegistered(businessData);
+
     
 }

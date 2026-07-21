@@ -1,4 +1,3 @@
-// events/rabbitmq.ts
 import amqp from 'amqplib';
 import { env } from '../config/env';
 
@@ -11,7 +10,7 @@ export async function connectRabbitMQ(): Promise<void> {
 
   console.log('✓ RabbitMQ connected');
 
-  connection.on('error', (err) => {
+  connection.on('error', (err: Error) => {
     console.error('RabbitMQ connection error', err);
   });
 }

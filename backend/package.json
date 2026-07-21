@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "@sendbyte/node": "^0.2.1",
     "amqplib": "^2.0.1",

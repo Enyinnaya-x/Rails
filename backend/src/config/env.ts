@@ -10,7 +10,9 @@ const envSchema = z.object({
     JWT_SECRET: z.string().min(32),
     JWT_EXPIRES_IN: z.string().default('1h'),
     REFRESH_TOKEN_EXPIRY_DAYS: z.string().default('7'),
-    RABBITMQ_URL: z.string().url()
+    RABBITMQ_URL: z.string().url(),
+    SEND_BYTE_LIVE_API: z.string(),
+    WELCOME_EMAIL_TEMPLATE_ID: z.string()
 });
 
 const parsed = envSchema.safeParse(process.env);

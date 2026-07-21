@@ -1,7 +1,9 @@
-import LandingPage from "./pages/Landing/LandingPage";
+import SignUp from "./pages/Auth/SignUp";
+import Login from "./pages/Auth/Login";
 
 function App() {
-  return <LandingPage />;
+  return <Login />;
+        
 }
 
 export default App;

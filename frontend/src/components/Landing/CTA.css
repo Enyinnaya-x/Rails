@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Main System Font Integration */
+.cta-section {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding: 120px 32px;
+  background: #ffffff;
+  position: relative;
+}
+
+/* Deep Blue Gradient Anchor Box */
+.cta-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 40px;
+  border-radius: 28px;
+  background: linear-gradient(135deg,#0564FF 0%,#0A57E8 55%,#0849C9 100%);
+
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 24px 48px rgba(5, 100, 255, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cta-title {
+  margin-top: 28px;
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.cta-description {
+  margin: 24px auto 40px;
+  max-width: 620px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* Action Block Alignment */
+.cta-action-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.cta-button {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding: 18px 36px;
+  border: none;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #0564FF;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Trust Indicators Row */
+.cta-trust-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cta-trust-item {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.check-icon {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Responsive Scaling */
+@media (max-width: 868px) {
+  .cta-section {
+    padding: 80px 24px;
+  }
+
+  .cta-container {
+    padding: 60px 24px;
+    border-radius: 20px;
+  }
+
+  .cta-title {
+    font-size: 2.4rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  .cta-trust-row {
+    gap: 16px;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Dynamic Blue Design Token System */
+:root {
+  --primary: #0564FF;
+  --primary-hover: #0452D6;
+  --background: #FFFFFF;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Core Stats Section Layout */
+.stats-section {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  padding: 100px 0; /* Premium layout breathing room */
+  border-top: 1px solid var(--border);
+}
+
+/* Base structural layout container matching constraints */
+.stats-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+/* Mid-break Section Subtitle Accent */
+.stats-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.stats-heading p {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+}
+
+/* 4-Column Grid Blueprint */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* Premium Card Architecture */
+.stat-card {
+  text-align: center;
+  padding: 40px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--background);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Refined Interaction (Cohesive Blue Elevation Shadow) */
+.stat-card:hover {
+  transform: translateY(-4px); 
+  border-color: rgba(5, 100, 255, 0.3);
+  box-shadow: 0 12px 32px rgba(5, 100, 255, 0.05);
+}
+
+/* Bold Display Data Metrics */
+.stat-card h3 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0564FF; /* Integrated with new corporate digital blue token */
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+
+/* Clean Context Label Styling */
+.stat-card p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* High-Fidelity Mobile Grid Refactor */
+@media (max-width: 968px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-container {
+    padding: 0 24px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .stat-card {
+    padding: 32px 20px;
+  }
+  
+  .stat-card h3 {
+    font-size: 40px; /* Scaling optimization for tight handheld viewports */
+  }
+}

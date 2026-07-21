@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.footer-section {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 80px 0 40px 0;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+/* Top Section: Brand & Navigation Grid */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* Brand Column */
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+}
+
+.logo-dot {
+  color: #0564ff;
+}
+
+.footer-tagline {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Links Columns Matrix */
+.footer-links-grid {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+.footer-column-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.footer-column-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column-links a {
+  font-size: 15px;
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-column-links a:hover {
+  color: #0564ff;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* Responsive Behavior */
+@media (max-width: 968px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-section {
+    padding: 60px 0 32px 0;
+  }
+
+  .footer-container {
+    padding: 0 24px;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+}

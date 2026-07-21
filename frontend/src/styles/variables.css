@@ -1,0 +1,39 @@
+:root {
+  /* Brand */
+  --primary: #6C4CF1;
+  --primary-dark: #5738D9;
+  --primary-light: #F3F0FF;
+
+  /* Background */
+  --background: #F7F8FC;
+  --surface: #FFFFFF;
+  --sidebar: #FFFFFF;
+
+  /* Text */
+  --text-primary: #1E1B4B;
+  --text-secondary: #667085;
+
+  /* Border */
+  --border: #E4E7EC;
+
+  /* Status */
+  --success: #16A34A;
+  --warning: #F59E0B;
+  --danger: #DC2626;
+  --info: #3B82F6;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.05);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+
+  /* Sidebar */
+  --sidebar-width: 260px;
+
+  /* Navbar */
+  --navbar-height: 72px;
+}

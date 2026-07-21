@@ -1,0 +1,24 @@
+
+:root {
+  /* Brand */
+  --primary: #0564ff;
+  --primary-hover: #0454D6;
+  --primary-light: #EAF2FF;
+
+  /* Backgrounds */
+  --background: #FCFCFD;
+  --surface: #FFFFFF;
+  --surface-secondary: #F8FAFC;
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+
+  /* Borders */
+  --border: #E5E7EB;
+
+  /* Status */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+}

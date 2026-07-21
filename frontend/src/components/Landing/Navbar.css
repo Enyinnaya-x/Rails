@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Strict Design System & Variables */
+:root {
+  /* Brand */
+  --primary: #0564FF;
+  --primary-hover: #0454D6;
+  --primary-light: #EAF2FF;
+
+  /* Backgrounds */
+  --background: #FCFCFD;
+  --surface: #FFFFFF;
+  --surface-secondary: #F8FAFC;
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Base Layout Framework */
+.rails-navbar {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Elegant Logo Structure */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-marker {
+  color: #0564FF;
+  font-size: 1.15rem;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+/* Centered Desktop Menu Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+/* Right Menu Focus Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.link-signin {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link-signin:hover {
+  color: var(--text);
+}
+
+/* Primary Button Design */
+.btn-register {
+  font-family: var(--font-sans);
+  background: #0564FF;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-register:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.mobile-cta-wrapper {
+  display: none;
+}
+
+/* Mobile Layout Responsive Setup */
+.nav-toggle-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 868px) {
+  .nav-container {
+    padding: 0 24px;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle-burger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 40px 32px;
+    gap: 24px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+
+  .nav-menu.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-cta-wrapper {
+    display: block;
+    margin-top: 16px;
+  }
+
+  .mobile-cta-wrapper .btn-register {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* Structural Open Transform States */
+  .nav-toggle-burger.open .burger-line:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .nav-toggle-burger.open .burger-line:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}

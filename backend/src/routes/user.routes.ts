@@ -2,6 +2,7 @@ import { Router } from "express";
 import { login, register } from "../controllers/auth.controller";
 import { validate } from "../middlewares/validate.middleware";
 import { loginUserSchema, registerUserSchema } from "../validators/auth.validator";
+import { authLimiter } from "../middlewares/rateLimit.middleware";
 
 const router = Router()
 
@@ -51,7 +52,7 @@ const router = Router()
  *       201:
  *         description: Account successfully created
  */
-router.post('/register', validate(registerUserSchema), register);
+router.post('/register', validate(registerUserSchema), authLimiter, register);
 
 /**
  * @openapi
@@ -80,7 +81,7 @@ router.post('/register', validate(registerUserSchema), register);
  *       201:
  *         description: Account successfully created
  */
-router.post('/login', validate(loginUserSchema), login);
+router.post('/login', validate(loginUserSchema), authLimiter, login);
 
 
 export default router;

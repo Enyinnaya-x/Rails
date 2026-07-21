@@ -2,6 +2,7 @@ import { Router } from "express";
 import { validate } from "../middlewares/validate.middleware";
 import { RegisterBusinessSchema } from "../validators/business.validator";
 import { registerBusinesses } from "../controllers/business.controller";
+import { authLimiter } from "../middlewares/rateLimit.middleware";
 
 const router = Router();
 
@@ -45,7 +46,7 @@ const router = Router();
  *       201:
  *         description: Business registered successfully
  */
-router.post('/register', validate(RegisterBusinessSchema), registerBusinesses);
+router.post('/register', validate(RegisterBusinessSchema), authLimiter, registerBusinesses);
 
 
 export default router;

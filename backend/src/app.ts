@@ -3,6 +3,7 @@ import routes from './routes/index.js';
 import { errorHandler } from './middlewares/error.middleware.js';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import { globalLimiter } from './middlewares/rateLimit.middleware.js';
 
 const app: Express = express();
 
@@ -28,7 +29,7 @@ const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
+app.use(globalLimiter);
 app.use('/api/v1', routes);
 app.use(errorHandler);
 

@@ -7,6 +7,7 @@ import { generateRefreshToken, generateToken } from "../utils/jwt";
 import { storeRefreshToken } from "../repositories/refreshToken.repository";
 import { env } from "../config/env";
 import { normalizeNigerianPhone } from "../utils/normalizePhone";
+import { publishUserRegistered } from "../events/publishers/userEvent.publisher";
 
 // register User like admins or super_admins 
 export async function registerUser(data: RegisterUserRequest){
@@ -25,6 +26,9 @@ export async function registerUser(data: RegisterUserRequest){
 
     //register user
     await createUser(userData);
+
+    //trigger an event to send a welcome email
+    await publishUserRegistered(userData);
 
 }
 

@@ -3,6 +3,7 @@ import Navbar from "../../components/Landing/Navbar";
 import Features from "../../components/Landing/features";
 import featuresCard from "../../components/Landing/featureCard";
 import Stats from "../../components/Landing/stats";
+import HowItWorks from "../../components/Landing/howitworks";
 
 function landingPage() {
   return (
@@ -12,6 +13,7 @@ function landingPage() {
       <Stats/>
       <Features />
       <featureCard/>
+      <HowItWorks/>
     </>
   );
 }

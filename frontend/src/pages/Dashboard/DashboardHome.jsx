@@ -1,13 +1,14 @@
 import Sidebar from "../../components/Dashboard/Sidebar";
-// import Topbar from "../../components/Dashboard/Topbar";
+import Topbar from "../../components/Dashboard/Topbar";
 
 export default function DashboardHome() {
   return (
     <div className="dashboard-layout">
+      <Topbar />
       <Sidebar />
 
       <main>
-        <Sidebar />
+        {/* <Topbar /> */}
 
         {/* Cards */}
 

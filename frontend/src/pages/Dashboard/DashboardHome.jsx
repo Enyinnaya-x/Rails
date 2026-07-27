@@ -1,19 +1,54 @@
-import Sidebar from "../../components/Dashboard/Sidebar";
-import Topbar from "../../components/Dashboard/Topbar";
+import DashboardLayout from "../../components/Dashboard/DashboardLayout";
+import StatCard from "../../components/dashboard/Statcard";
+import { Users, Briefcase, Calendar, UserPlus } from "lucide-react";
+import './DashboardHome.css';
 
 export default function DashboardHome() {
   return (
-    <div className="dashboard-layout">
-      <Topbar />
-      <Sidebar />
+    <DashboardLayout>
 
-      <main>
-        {/* <Topbar /> */}
+       <div className="stats-grid">
 
-        {/* Cards */}
+        <StatCard
+          title="Total Employees"
+          value="207"
+          trend="+3"
+          icon={Users}
+          variant="blue"
+          isPositive={true}
+        />
 
-        {/* Employee Table */}
-      </main>
-    </div>
+        <StatCard
+          title="Active Employees"
+          value="164"
+          trend="+2"
+          icon={Briefcase}
+          variant="green"
+          isPositive={true}
+        />
+
+        <StatCard
+          title="On Leave"
+          value="12"
+          trend="-2"
+          icon={Calendar}
+          variant="red"
+          isPositive={false}
+        />
+
+        <StatCard
+          title="New This Month"
+          value="3"
+          trend="+2"
+          icon={UserPlus}
+          variant="purple"
+          isPositive={true}
+        />
+
+      </div>
+
+      {/* Table goes here */}
+
+    </DashboardLayout>
   );
 }

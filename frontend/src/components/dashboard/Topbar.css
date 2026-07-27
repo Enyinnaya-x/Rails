@@ -18,7 +18,7 @@
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
-  box-shadow:0 1px 0 #e7e3e3;
+  /* box-shadow:0 1px 0 #e7e3e3; */
 }
 
 /* Greeting Section */
@@ -64,7 +64,7 @@
 
 .topbar-search:focus-within {
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 2px var(--primary);
+  box-shadow: 0 0 0 2px #0564FF;
 }
 
 .topbar-search input {
@@ -110,7 +110,7 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  background-color: var(--primary);
+  background-color: #0564FF;
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;

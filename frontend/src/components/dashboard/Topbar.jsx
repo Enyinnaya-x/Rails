@@ -6,7 +6,7 @@ export default function TopBar({ user }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const currentUser = user || {
-    name: 'Siyam',
+    name: 'Victor',
     role: 'HR',
     avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80' // Replace with your avatar source
   };

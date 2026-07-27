@@ -1,9 +1,7 @@
-import SignUp from "./pages/Auth/SignUp";
-import Login from "./pages/Auth/Login";
+import DashboardHome from "./pages/Dashboard/DashboardHome";
 
 function App() {
-  return <Login />;
-        
+  return <DashboardHome />;
 }
 
 export default App;

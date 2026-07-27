@@ -68,22 +68,22 @@
 
 /* Right Form Section */
 .signup-right {
-  flex: 1;
+  flex: 1.1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 32px;
+  padding: 60px 40px;
   background: var(--bg-white);
   overflow-y: auto;
 }
 
 .form-wrapper {
   width: 100%;
-  max-width: 440px;
+  max-width: 520px;
 }
 
 .form-header {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .form-header h2 {
@@ -103,7 +103,14 @@
 .signup-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+}
+
+/* Responsive 2-column input row for expanded payload */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .form-group {
@@ -118,8 +125,8 @@
   color: var(--text);
 }
 
-.form-group input {
-  height: 52px; /* Fixed height standard */
+.form-group input, 
+.form-group textarea {
   width: 100%;
   padding: 0 16px;
   border: 1px solid var(--border);
@@ -132,21 +139,64 @@
   box-sizing: border-box;
 }
 
-.form-group input:focus {
+.form-group input {
+  height: 52px;
+}
+
+.form-group textarea {
+  padding: 14px 16px;
+  resize: vertical;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(5, 100, 255, 0.1);
 }
 
-.form-group input::placeholder {
+.form-group input::placeholder,
+.form-group textarea::placeholder {
   color: #9CA3AF;
+}
+
+/* Custom File Upload Box */
+.file-upload-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background-color: #F9FAFB;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-upload-label:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(5, 100, 255, 0.02);
 }
 
 /* Primary Button Styling */
 .submit-button {
-  height: 54px; /* Fixed height standard */
+  height: 54px;
   width: 100%;
-  background-color: #0564FF;
+  background-color: var(--primary);
   color: #FFFFFF;
   border: none;
   border-radius: 12px;
@@ -154,7 +204,7 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 10px;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -169,7 +219,7 @@
   text-align: center;
   font-size: 14px;
   color: var(--muted);
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .form-footer-text a {
@@ -203,5 +253,10 @@
 
   .signup-right {
     padding: 48px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 }

@@ -1,5 +1,7 @@
 import DashboardLayout from "../../components/Dashboard/DashboardLayout";
 import StatCard from "../../components/dashboard/Statcard";
+import Table from "../../components/dashboard/Table";
+
 import { Users, Briefcase, Calendar, UserPlus } from "lucide-react";
 import './DashboardHome.css';
 
@@ -47,7 +49,7 @@ export default function DashboardHome() {
 
       </div>
 
-      {/* Table goes here */}
+      <Table />
 
     </DashboardLayout>
   );

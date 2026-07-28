@@ -1,6 +1,8 @@
 import DashboardLayout from "../../components/Dashboard/DashboardLayout";
 import StatCard from "../../components/dashboard/Statcard";
 import Table from "../../components/dashboard/Table";
+import RecentActivity from "../../components/dashboard/RecentActivity";
+import AnnouncementCard from "../../components/dashboard/AnnouncementCard";
 
 import { Users, Briefcase, Calendar, UserPlus } from "lucide-react";
 import './DashboardHome.css';
@@ -50,6 +52,12 @@ export default function DashboardHome() {
       </div>
 
       <Table />
+
+      <div className="dashboard-bottom-grid">
+
+      <RecentActivity />
+      <AnnouncementCard />
+      </div>
 
     </DashboardLayout>
   );

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #0564FF;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --border-light: #F3F4F6;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+.announcement-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-icon-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #EEF4FF;
+  color: #0564FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.announcement-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #FAFAFA;
+  border: 1px solid #F3F4F6;
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.announcement-item:hover {
+  border-color: #E5E7EB;
+}
+
+.announcement-icon-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #EEF4FF;
+  color: #0564FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.4;
+}

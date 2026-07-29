@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #0564FF;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --bg-topbar: #FFFFFF;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+.topbar {
+  font-family: var(--font-sans);
+  background-color: var(--bg-topbar);
+  padding:14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  /* box-shadow:0 1px 0 #e7e3e3; */
+}
+
+/* Greeting Section */
+.topbar-welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.welcome-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.welcome-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Right Side Wrapper */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Pill-shaped Search Input */
+.topbar-search {
+  display: flex;
+  align-items: center;
+  background-color: #F3F4F6;
+  border-radius: 9999px;
+  padding: 0 16px;
+  width: 260px;
+  height: 42px;
+  transition: all 0.2s ease;
+}
+
+.topbar-search:focus-within {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 2px #0564FF;
+}
+
+.topbar-search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  width: 100%;
+  color: var(--text);
+}
+
+.topbar-search input::placeholder {
+  color: #9CA3AF;
+}
+
+.topbar-search .search-icon {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* Notification Button with Pill Badge */
+.notification-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background-color: #F3F4F6;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.notification-btn:hover {
+  background-color: #E5E7EB;
+}
+
+.notification-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #0564FF;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 9999px;
+  border: 2px solid #FFFFFF;
+  line-height: 1;
+}
+
+/* Divider */
+.topbar-divider {
+  width: 1px;
+  height: 28px;
+  background-color: #E5E7EB;
+  margin: 0 4px;
+}
+
+/* Profile Section */
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-role-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.user-department {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.user-avatar-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #F3F4F6;
+  flex-shrink: 0;
+}
+
+.user-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(5, 100, 255, 0.1);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Responsive Rules */
+@media (max-width: 868px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .topbar-search {
+    width: 100%;
+  }
+}

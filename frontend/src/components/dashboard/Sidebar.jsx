@@ -13,59 +13,103 @@ import {
   HelpCircle 
 } from 'lucide-react';
 import './Sidebar.css';
+import { NavLink } from "react-router-dom";
 
 // Core operational navigation
 const mainNavItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'employees', label: 'Employees', icon: Users },
-  { id: 'hiring', label: 'Hiring', icon: UserPlus },
-  { id: 'payroll', label: 'Payroll', icon: Wallet },
-  { id: 'reports', label: 'Reports', icon: FileText },
-  { id: 'attendance', label: 'Attendance', icon: Clock },
-  { id: 'time-off', label: 'Time Off', icon: Calendar },
-  { id: 'files', label: 'Files', icon: Folder },
+  {
+    label: "Dashboard",
+    icon: LayoutDashboard,
+    path: "/dashboard",
+  },
+  {
+    label: "Employees",
+    icon: Users,
+    path: "/dashboard/users",
+  },
+  {
+    label: "Hiring",
+    icon: UserPlus,
+    path: "/dashboard/register-users",
+  },
+  {
+    label: "Payroll",
+    icon: Wallet,
+    path: "/dashboard/payroll",
+  },
+  {
+    label: "Reports",
+    icon: FileText,
+    path: "/dashboard/reports",
+  },
+  {
+    label: "Attendance",
+    icon: Clock,
+    path: "/dashboard/attendance",
+  },
+  {
+    label: "Time Off",
+    icon: Calendar,
+    path: "/dashboard/timeoff",
+  },
+  {
+    label: "Files",
+    icon: Folder,
+    path: "/dashboard/files",
+  },
 ];
 
 // Secondary profile & system settings
 const secondaryNavItems = [
-  { id: 'profile', label: 'Profile', icon: User },
-  { id: 'settings', label: 'Settings', icon: Settings },
-  { id: 'help', label: 'Help', icon: HelpCircle },
+  {
+    label: "Profile",
+    icon: User,
+    path: "/dashboard/profile",
+  },
+  {
+    label: "Settings",
+    icon: Settings,
+    path: "/dashboard/settings",
+  },
+  {
+    label: "Help",
+    icon: HelpCircle,
+    path: "/dashboard/help",
+  },
 ];
+export default function Sidebar() {
+  // const [internalActiveTab, setInternalActiveTab] = useState('dashboard');
 
-export default function Sidebar({ activeTab, onTabChange }) {
-  const [internalActiveTab, setInternalActiveTab] = useState('dashboard');
+  // const currentActive = activeTab ?? internalActiveTab;
 
-  const currentActive = activeTab ?? internalActiveTab;
-
-  const handleSelect = (id) => {
-    setInternalActiveTab(id);
-    if (onTabChange) {
-      onTabChange(id);
-    }
-  };
+  // const handleSelect = (id) => {
+  //   setInternalActiveTab(id);
+  //   if (onTabChange) {
+  //     onTabChange(id);
+  //   }
+  // };
 
   const renderNavList = (items) => (
-    <ul className="sidebar-nav-list">
-      {items.map((item) => {
-        const IconComponent = item.icon;
-        const isActive = currentActive === item.id;
+  <ul className="sidebar-nav-list">
+    {items.map((item) => {
+      const IconComponent = item.icon;
 
-        return (
-          <li key={item.id}>
-            <button
-              type="button"
-              className={`sidebar-nav-item ${isActive ? 'active' : ''}`}
-              onClick={() => handleSelect(item.id)}
-            >
-              <IconComponent size={18} className="sidebar-nav-icon" />
-              <span className="sidebar-nav-label">{item.label}</span>
-            </button>
-          </li>
-        );
-      })}
-    </ul>
-  );
+      return (
+        <li key={item.path}>
+          <NavLink
+            to={item.path}
+            className={({ isActive }) =>
+              `sidebar-nav-item ${isActive ? "active" : ""}`
+            }
+          >
+            <IconComponent size={18} className="sidebar-nav-icon" />
+            <span className="sidebar-nav-label">{item.label}</span>
+          </NavLink>
+        </li>
+      );
+    })}
+  </ul>
+);
 
   return (
     <aside className="sidebar">

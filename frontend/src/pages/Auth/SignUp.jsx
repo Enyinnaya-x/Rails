@@ -1,35 +1,46 @@
-import React from 'react';
-import './SignUp.css';
+import React from "react";
+import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Later you'll send the data to the backend here
+
+    navigate("/dashboard");
+  };
+
   return (
     <div className="signup-page">
-      
+
       {/* Left Branding Panel */}
       <div className="signup-left">
         <div className="brand-content">
-          <a href="/" className="signup-logo">
+          <a href="/" className="signin-logo">
             Rails<span className="logo-dot">.</span>
           </a>
           <h1 className="brand-title">
             Workforce Management
           </h1>
           <p className="brand-description">
-            "Manage employees, payroll, and approvals from one secure platform."
+           Everything your company needs to manage people, payroll, and approvals.
           </p>
         </div>
       </div>
 
-     {/* Right Form Container */}
+      {/* Right Form */}
       <div className="signup-right">
         <div className="form-wrapper">
-          
-          <div className="form-header">
-            <h2>Company Profile</h2>
-            <p>Fill in your business details to complete registration.</p>
-          </div>
 
-          <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
+          <form
+            className="signup-form"
+            onSubmit={handleSubmit}
+          >
             
             {/* Company Name & Email Row */}
             <div className="form-row">
@@ -115,9 +126,9 @@ export default function SignUp() {
 
           </form>
 
-          <p className="form-footer-text">
-            Need to switch accounts? <a href="#signin">Sign In As Different User</a>
-          </p>
+          <Link to="/login" className="link-signin">
+            Sign In As Different User
+          </Link>
 
         </div>
       </div>

@@ -1,16 +1,27 @@
-import React from 'react';
-import './Login.css';
+import React from "react";
+import "./Login.css";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export default function Login() {
+  const navigate = useNavigate();
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  // Later you'll validate the login here
+
+  navigate("/dashboard");
+};
   return (
     <div className="signin-page">
       
       {/* Left Branding Panel (Reused layout structure) */}
       <div className="signin-left">
         <div className="brand-content">
-          <a href="/" className="signin-logo">
+          <link to ="/" className="signin-logo">
             Rails<span className="logo-dot">.</span>
-          </a>
+          </link>
           <h1 className="brand-title">
             Workforce Management
           </h1>
@@ -29,7 +40,7 @@ export default function Login() {
             <p>Sign in to access your company dashboard.</p>
           </div>
 
-          <form className="signin-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="signin-form" onSubmit={handleSubmit}>
             
             <div className="form-group">
               <label htmlFor="companyEmail">Company Email</label>
@@ -61,7 +72,7 @@ export default function Login() {
           </form>
 
           <p className="form-footer-text">
-            Don't have an account? <a href="#signup">Create Company</a>
+            Don't have an account? <link to="#signup">Create Company</link>
           </p>
 
         </div>

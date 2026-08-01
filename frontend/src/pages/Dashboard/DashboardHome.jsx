@@ -1,17 +1,16 @@
-import DashboardLayout from "../../components/Dashboard/DashboardLayout";
 import StatCard from "../../components/dashboard/Statcard";
 import Table from "../../components/dashboard/Table";
 import RecentActivity from "../../components/dashboard/RecentActivity";
 import AnnouncementCard from "../../components/dashboard/AnnouncementCard";
-
+import AddEmployee from "./AddEmployee";
 import { Users, Briefcase, Calendar, UserPlus } from "lucide-react";
-import './DashboardHome.css';
 
-export default function DashboardHome() {
+import "./DashboardHome.css";
+
+export default function DashboardHome({ showAddEmployee, setShowAddEmployee }) {
   return (
-    <DashboardLayout>
-
-       <div className="stats-grid">
+    <>
+      <div className="stats-grid">
 
         <StatCard
           title="Total Employees"
@@ -19,7 +18,7 @@ export default function DashboardHome() {
           trend="+3"
           icon={Users}
           variant="blue"
-          isPositive={true}
+          isPositive
         />
 
         <StatCard
@@ -28,7 +27,7 @@ export default function DashboardHome() {
           trend="+2"
           icon={Briefcase}
           variant="green"
-          isPositive={true}
+          isPositive
         />
 
         <StatCard
@@ -46,7 +45,7 @@ export default function DashboardHome() {
           trend="+2"
           icon={UserPlus}
           variant="purple"
-          isPositive={true}
+          isPositive
         />
 
       </div>
@@ -54,11 +53,14 @@ export default function DashboardHome() {
       <Table />
 
       <div className="dashboard-bottom-grid">
-
-      <RecentActivity />
-      <AnnouncementCard />
+        <RecentActivity />
+        <AnnouncementCard />
       </div>
 
-    </DashboardLayout>
+      {showAddEmployee && (
+        <AddEmployee onClose={() => setShowAddEmployee(false)} />
+      )}
+
+    </>
   );
 }

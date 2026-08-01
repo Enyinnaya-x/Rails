@@ -1,5 +1,7 @@
 import React from 'react';
 import './CTA.css';
+import { useNavigate } from "react-router-dom";
+
 
 const trustHighlights = [
   "Secure Onboarding",
@@ -9,6 +11,7 @@ const trustHighlights = [
 ];
 
 export default function CTA() {
+  const navigate = useNavigate();
   return (
     <section className="cta-section">
       <div className="cta-container">
@@ -28,8 +31,11 @@ export default function CTA() {
         </p>
 
         <div className="cta-action-block">
-          <button className="cta-button">
-            Register Company →
+          <button
+            className="cta-btn"
+            onClick={() => navigate("/signup")}
+          >
+            Register Company
           </button>
 
           {/* Subtitle Value Reinforcers */}

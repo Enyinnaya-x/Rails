@@ -1,7 +1,9 @@
-import React from 'react';
-import './Hero.css';
+import React from "react";
+import "./Hero.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+  const navigate = useNavigate();
   return (
     <section className="rails-hero">
       {/* Background ambient glow effect */}
@@ -25,8 +27,13 @@ export default function Hero() {
           </p>
 
           <div className="hero-action-group">
-            <button className="btn-primary-hero">Register Company</button>
-            <button className="btn-secondary-hero">Book Demo</button>
+            <button onClick={() => navigate("/login")} className="hero-btn hero-btn-primary">
+              Sign In
+            </button>
+
+            <button onClick={() => navigate("/signup")} className="hero-btn hero-btn-secondary">
+              Register Company
+            </button>
           </div>
 
           {/* Scannable Trust Indicators */}

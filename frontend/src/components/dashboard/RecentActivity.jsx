@@ -5,8 +5,8 @@ import './RecentActivity.css';
 const defaultActivities = [
   {
     id: '1',
-    title: 'Sarah Chen was added as an employee',
-    timestamp: '5 minutes ago',
+    title: 'Sarah Chen added as an employee',
+    timestamp: 'Just now',
     icon: UserPlus,
     type: 'blue'
   },

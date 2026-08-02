@@ -39,11 +39,11 @@
   flex-shrink: 0;
 }
 
-/* Icon Variations
+/* Icon Variations */
 .stat-icon-wrapper.blue {
   background-color: #EEF4FF;
-  /* color: var(--primary); */
- */
+  color: #0564FF;
+}
 
 .stat-icon-wrapper.blue-light {
   background-color: #E0EDFF;

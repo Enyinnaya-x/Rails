@@ -16,7 +16,6 @@
   padding: 0;
 }
 
-/* Fullscreen Flex Wrapper */
 .dashboard-layout {
   font-family: var(--font-sans);
   display: flex;
@@ -26,16 +25,15 @@
   overflow: hidden;
 }
 
-/* Main Content Area next to Sidebar */
 .dashboard-main-area {
   flex: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
-/* Scrollable Main Area */
 .dashboard-content-body {
   flex: 1;
   padding: 24px 32px 32px 32px;
@@ -45,11 +43,12 @@
   gap: 24px;
 }
 
-/* Overview Header Section */
 .dashboard-overview-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .overview-title {
@@ -63,9 +62,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* Export Pill Button */
 .btn-export-pill {
   display: flex;
   align-items: center;
@@ -88,7 +87,6 @@
   color: #0564FF;
 }
 
-/* Add Employee Primary Pill Button */
 .btn-add-employee-pill {
   display: flex;
   align-items: center;
@@ -111,25 +109,9 @@
   transform: translateY(-1px);
 }
 
-/* Main Content Slot Container */
-.dashboard-view-slot {
-  width: 100%;
-}
-
-.slot-placeholder {
-  border: 2px dashed var(--border);
-  border-radius: 16px;
-  padding: 48px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 14px;
-  background-color: #FFFFFF;
-}
-
-/* Mobile Responsiveness */
 @media (max-width: 868px) {
   .dashboard-content-body {
-    padding: 20px 16px;
+    padding: 20px 16px 24px;
   }
 
   .dashboard-overview-bar {
@@ -137,4 +119,5 @@
     align-items: flex-start;
     gap: 12px;
   }
+
 }

@@ -1,102 +1,115 @@
-import React, { useState } from 'react';
-import { Search, Calendar, SlidersHorizontal, MoreVertical } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Search, Calendar, SlidersHorizontal, MoreVertical, Pencil } from 'lucide-react';
+import avatar from '../../assets/avatar.svg';
 import './Table.css';
 
-// Dummy Employee Data matching the reference screen layout
-const dummyEmployees = [
-  {
-    id: '1',
-    name: 'Sarah Chen',
-    role: 'Senior Product Designer',
-    department: 'Design',
-    location: '2715 Ash Dr. San Jose, South Dakota 83475',
-    email: 'emma.davis@rails.com',
-    phone: '(684) 555-0102',
-    startDate: '31/12/2026',
-    status: 'Active',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80'
-  },
-  {
-    id: '2',
-    name: 'James Park',
-    role: 'Sales Director',
-    department: 'Sales',
-    location: '2464 Royal Ln. Mesa, New Jersey 45463',
-    email: 'emma.davis@rails.com',
-    phone: '(319) 555-0115',
-    startDate: '31/12/2026',
-    status: 'Active',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80'
-  },
-  {
-    id: '3',
-    name: 'Dianne Russell',
-    role: 'DevOps Engineer',
-    department: 'Engineering',
-    location: '6391 Elgin St. Celina, Delaware 10299',
-    email: 'emma.davis@rails.com',
-    phone: '(239) 555-0108',
-    startDate: '31/12/2026',
-    status: 'Active',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'
-  },
-  {
-    id: '4',
-    name: 'Robert Fox',
-    role: 'HR Specialist',
-    department: 'Human Resources',
-    location: '3891 Ranchview Dr. Richardson, California 62639',
-    email: 'emma.davis@rails.com',
-    phone: '(704) 555-0127',
-    startDate: '31/12/2026',
-    status: 'Active',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80'
-  }
-];
-
-export default function EmployeeTable({ employees = dummyEmployees }) {
+export default function Table({
+  employees,
+  onEditEmployee,
+  filterMode,
+  filterValue,
+  onFilterChange,
+  departmentOptions,
+  locationOptions,
+}) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Local search filtering across Name, Role, or Department
-  const filteredEmployees = employees.filter((emp) =>
-    emp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    emp.role.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    emp.department.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredEmployees = useMemo(() => {
+    const normalizedTerm = searchTerm.trim().toLowerCase();
+
+    return (employees || []).filter((emp) => {
+      const name = `${emp.firstName || ''} ${emp.lastName || ''}`.trim().toLowerCase();
+      return (
+        !normalizedTerm ||
+        name.includes(normalizedTerm) ||
+        emp.role?.toLowerCase().includes(normalizedTerm) ||
+        emp.department?.toLowerCase().includes(normalizedTerm)
+      );
+    });
+  }, [employees, searchTerm]);
 
   return (
     <div className="employee-table-card">
-      {/* 1. Header Section with Controls */}
       <div className="employee-card-header">
         <h2 className="card-title">Employee List</h2>
 
         <div className="table-controls">
-          {/* Search Bar Input */}
           <div className="table-search-input">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search employees"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <Search size={16} className="search-icon" />
           </div>
 
-          {/* Date Filter Pill */}
-          <button type="button" className="btn-table-filter">
+          <button
+            type="button"
+            className={`btn-table-filter ${filterMode === 'month' ? 'active' : ''}`}
+            onClick={() => onFilterChange('month', 'month')}
+          >
             <span>This Month</span>
             <Calendar size={15} />
           </button>
 
-          {/* Drawer Filter Pill */}
-          <button type="button" className="btn-table-filter">
-            <span>Filter</span>
+          <button
+            type="button"
+            className={`btn-table-filter ${filterMode === 'status' && filterValue === 'Active' ? 'active' : ''}`}
+            onClick={() => onFilterChange('status', 'Active')}
+          >
+            <span>Active</span>
+          </button>
+
+          <button
+            type="button"
+            className={`btn-table-filter ${filterMode === 'status' && filterValue === 'On Leave' ? 'active' : ''}`}
+            onClick={() => onFilterChange('status', 'On Leave')}
+          >
+            <span>On Leave</span>
+          </button>
+
+          <button
+            type="button"
+            className={`btn-table-filter ${filterMode === 'department' ? 'active' : ''}`}
+            onClick={() => onFilterChange('department', filterMode === 'department' ? '' : (departmentOptions[0] || ''))}
+          >
+            <span>Department</span>
+            <SlidersHorizontal size={15} />
+          </button>
+
+          <button
+            type="button"
+            className={`btn-table-filter ${filterMode === 'location' ? 'active' : ''}`}
+            onClick={() => onFilterChange('location', filterMode === 'location' ? '' : (locationOptions[0] || ''))}
+          >
+            <span>Location</span>
             <SlidersHorizontal size={15} />
           </button>
         </div>
       </div>
 
-      {/* 2. Scrollable Data Table Container */}
+      {(filterMode === 'department' || filterMode === 'location') && (
+        <div className="table-filter-select-wrap">
+          <label className="table-filter-label" htmlFor="table-filter-select">
+            {filterMode === 'department' ? 'Department' : 'Location'}
+          </label>
+          <select
+            id="table-filter-select"
+            className="table-filter-select"
+            value={filterValue}
+            onChange={(event) => onFilterChange(filterMode, event.target.value)}
+          >
+            <option value="">All</option>
+            {(filterMode === 'department' ? departmentOptions : locationOptions).map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <div className="table-responsive-container">
         <table className="employee-data-table">
           <thead>
@@ -115,48 +128,51 @@ export default function EmployeeTable({ employees = dummyEmployees }) {
             {filteredEmployees.length > 0 ? (
               filteredEmployees.map((emp) => (
                 <tr key={emp.id}>
-                  {/* Avatar + Employee Name */}
                   <td>
                     <div className="employee-profile-cell">
-                      <img src={emp.avatar} alt={emp.name} className="employee-avatar" />
-                      <span className="employee-name">{emp.name}</span>
+                      <img
+                        src={emp.avatar || avatar}
+                        alt={`${emp.firstName || ''} ${emp.lastName || ''}`.trim()}
+                        className="employee-avatar"
+                      />
+                      <span className="employee-name">
+                        {`${emp.firstName || ''} ${emp.lastName || ''}`.trim()}
+                      </span>
                     </div>
                   </td>
 
-                  {/* Role */}
-                  <td className="text-secondary">{emp.role}</td>
+                  <td className="text-secondary">{emp.role || 'N/A'}</td>
 
-                  {/* Department Pill */}
                   <td>
-                    <span className="department-tag">{emp.department}</span>
+                    <span className="department-tag">{emp.department || 'N/A'}</span>
                   </td>
 
-                  {/* Location Address */}
-                  <td className="text-secondary location-text">{emp.location}</td>
+                  <td className="text-secondary location-text">{emp.location || 'N/A'}</td>
 
-                  {/* Email & Phone Contact Stack */}
                   <td>
                     <div className="contact-stack">
-                      <span className="contact-email">{emp.email}</span>
-                      <span className="contact-phone">{emp.phone}</span>
+                      <span className="contact-email">{emp.email || 'N/A'}</span>
+                      <span className="contact-phone">{emp.phone || 'N/A'}</span>
                     </div>
                   </td>
 
-                  {/* Start Date */}
-                  <td className="text-secondary">{emp.startDate}</td>
+                  <td className="text-secondary">{emp.startDate || 'N/A'}</td>
 
-                  {/* Status Badge */}
                   <td>
-                    <span className={`status-badge ${emp.status.toLowerCase()}`}>
-                      {emp.status}
+                    <span className={`status-badge ${emp.status?.toLowerCase() || 'active'}`}>
+                      {emp.status || 'Active'}
                     </span>
                   </td>
 
-                  {/* Action Dots */}
                   <td>
-                    <button type="button" className="btn-action-menu">
-                      <MoreVertical size={16} />
-                    </button>
+                    <div className="action-cell">
+                      <button type="button" className="btn-action-menu" onClick={() => onEditEmployee(emp)}>
+                        <Pencil size={16} />
+                      </button>
+                      <button type="button" className="btn-action-menu">
+                        <MoreVertical size={16} />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))

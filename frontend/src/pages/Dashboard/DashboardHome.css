@@ -1,3 +1,80 @@
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.dashboard-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dashboard-page-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.dashboard-page-subtitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+}
+
+.dashboard-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-export-pill,
+.btn-add-employee-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 18px;
+    border-radius: 9999px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-export-pill {
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    color: #374151;
+}
+
+.btn-export-pill:hover {
+    transform: translateY(-1px);
+    border-color: #0564FF;
+    color: #0564FF;
+}
+
+.btn-add-employee-pill {
+    border: none;
+    background-color: #0564FF;
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(5, 100, 255, 0.16);
+}
+
+.btn-add-employee-pill:hover {
+    transform: translateY(-1px);
+    background-color: #0452D6;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -19,6 +96,20 @@
 }
 
 @media (max-width: 768px) {
+    .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-actions {
+        width: 100%;
+    }
+
+    .btn-export-pill,
+    .btn-add-employee-pill {
+        flex: 1 1 0;
+    }
+
     .stats-grid {
         grid-template-columns: 1fr;
     }

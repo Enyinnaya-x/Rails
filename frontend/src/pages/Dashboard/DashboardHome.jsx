@@ -5,14 +5,16 @@ import Table from "../../components/dashboard/Table";
 import RecentActivity from "../../components/dashboard/RecentActivity";
 import AnnouncementCard from "../../components/dashboard/AnnouncementCard";
 import AddEmployee from "./AddEmployee";
-import { Users, Briefcase, Calendar, UserPlus } from "lucide-react";
+import { Users, Briefcase, Calendar, UserPlus, Download } from "lucide-react";
 import avatar from "../../assets/avatar.svg";
 
 import "./DashboardHome.css";
 
 const defaultAvatar = avatar;
 
+
 const initialEmployees = [
+  
   {
     id: 1,
     firstName: "Sarah",
@@ -88,7 +90,7 @@ export default function DashboardHome({ showAddEmployee, setShowAddEmployee }) {
   const [editingEmployee, setEditingEmployee] = useState(null);
   const [filterMode, setFilterMode] = useState("all");
   const [filterValue, setFilterValue] = useState("");
-  const { dashboardSearch = "", setExportData } = useOutletContext();
+  const { dashboardSearch = "" } = useOutletContext();
 
   const totalEmployees = employees.length;
   const activeEmployees = employees.filter((emp) => emp.status === "Active").length;
@@ -142,9 +144,36 @@ export default function DashboardHome({ showAddEmployee, setShowAddEmployee }) {
     });
   }, [currentDate, dashboardSearch, employees, filterMode, filterValue]);
 
-  useEffect(() => {
-    setExportData([...visibleEmployees]);
-  }, [setExportData, visibleEmployees]);
+  const handleExport = () => {
+    if (!visibleEmployees.length) return;
+
+    const rows = [
+      ["Employee ID", "Name", "Role", "Department", "Location", "Email", "Phone", "Status", "Start Date"],
+      ...visibleEmployees.map((employee) => [
+        employee.employeeId || employee.id,
+        `${employee.firstName || ""} ${employee.lastName || ""}`.trim(),
+        employee.role || "",
+        employee.department || "",
+        employee.location || "",
+        employee.email || "",
+        employee.phone || "",
+        employee.status || "",
+        employee.startDate || "",
+      ]),
+    ];
+
+    const csvContent = rows
+      .map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "employees.csv";
+    link.click();
+    window.URL.revokeObjectURL(url);
+  };
 
   const handleSaveEmployee = (employeeData) => {
     const normalizedEmployee = normalizeEmployee(employeeData, employees.length);
@@ -208,6 +237,29 @@ export default function DashboardHome({ showAddEmployee, setShowAddEmployee }) {
 
   return (
     <>
+      <div className="dashboard-header">
+        <div className="dashboard-title-group">
+          <h1 className="dashboard-page-title">Dashboard Overview</h1>
+          <p className="dashboard-page-subtitle">Track your team, activity, and talent pipeline.</p>
+        </div>
+
+        <div className="dashboard-actions">
+          <button className="btn-export-pill" type="button" onClick={handleExport}>
+            <Download size={16} />
+            <span>Export CSV</span>
+          </button>
+
+          <button
+            className="btn-add-employee-pill"
+            type="button"
+            onClick={() => setShowAddEmployee(true)}
+          >
+            <UserPlus size={16} />
+            <span>Add Employee</span>
+          </button>
+        </div>
+      </div>
+
       <div className="stats-grid">
         <StatCard
           title="Total Employees"

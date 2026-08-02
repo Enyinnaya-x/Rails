@@ -55,6 +55,11 @@
   color: #0564FF;
 }
 
+.stat-icon-wrapper.purple {
+  background-color: #EEF4FF;
+  color: #0564FF;
+}
+
 .stat-title {
   font-size: 14px;
   font-weight: 600;

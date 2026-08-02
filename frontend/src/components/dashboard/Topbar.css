@@ -2,6 +2,7 @@
 
 :root {
   --primary: #0564FF;
+  --accent: #0564FF;
   --text: #111827;
   --muted: #6B7280;
   --border: #E5E7EB;
@@ -88,7 +89,7 @@
 
 .topbar-search:focus-within {
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 2px #0564FF;
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
 .topbar-search input {
@@ -133,7 +134,7 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  background-color: #0564FF;
+  background-color: var(--accent);
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;
@@ -198,7 +199,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(5, 100, 255, 0.1);
-  color: #0564FF;
+  color: var(--accent);
   font-weight: 700;
   font-size: 14px;
 }

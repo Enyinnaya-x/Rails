@@ -13,8 +13,10 @@ import DashboardLayout from "./components/dashboard/DashboardLayout";
 import DashboardHome from "./pages/Dashboard/DashboardHome";
 import Users from "./pages/Dashboard/Users";
 import Payroll from "./pages/Dashboard/Payroll";
-import RegisterUsers from "./pages/Dashboard/RegisterUsers";
+import Messaging from "./pages/Dashboard/Messaging";
+// import RegisterUsers from "./pages/Dashboard/RegisterUsers";
 import Settings from "./pages/Dashboard/Settings";
+import Reports from "./pages/Dashboard/Reports";
 
 function App() {
   const [showAddEmployee, setShowAddEmployee] = useState(false);
@@ -49,9 +51,13 @@ function App() {
           />
           <Route path="users" element={<Users />} />
           <Route path="payroll" element={<Payroll />} />
-          <Route path="register-users" element={<RegisterUsers />} />
+          <Route path="messaging" element={<Messaging />} />
+          {/* <Route path="register-users" element={<RegisterUsers />} /> */}
           <Route path="settings" element={<Settings />} />
+          <Route path="reports" element={<Reports />} />
         </Route>
+
+        <Route path="/messaging" element={<Messaging />} />
 
       </Routes>
 

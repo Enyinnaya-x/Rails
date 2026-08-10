@@ -3,7 +3,8 @@ import {
   LayoutDashboard,
   Users,
   Wallet,
-  FileText,
+  BarChart3,
+  MessageSquare,
   User,
   Settings,
   X,
@@ -28,14 +29,14 @@ const mainNavItems = [
     path: "/dashboard/payroll",
   },
   {
-    label: "Register Users",
-    icon: FileText,
-    path: "/dashboard/register-users",
+    label: "Reports",
+    icon: BarChart3,
+    path: "/dashboard/reports",
   },
   {
-    label: "Reports",
-    icon: FileText,
-    path: "/dashboard/reports",
+    label: "Messaging",
+    icon: MessageSquare,
+    path: "/dashboard/messaging",
   },
 ];
 

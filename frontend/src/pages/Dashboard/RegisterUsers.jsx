@@ -1,4 +1,3 @@
-// RegisterUsers.jsx
 export default function RegisterUsers() {
   return (
     <div>

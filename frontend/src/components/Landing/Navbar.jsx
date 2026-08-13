@@ -17,10 +17,10 @@ export default function Navbar() {
 
         {/* Clean, Numberless Navigation Links */}
         <div className={`nav-menu ${isOpen ? 'is-active' : ''}`}>
-          <a href="#features" className="nav-link">Features</a>
-          <a href="#solutions" className="nav-link">Solutions</a>
-          <a href="#pricing" className="nav-link">Pricing</a>
-          <a href="#contact" className="nav-link">Contact</a>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
           
           {/* Mobile Primary Action */}
           <div className="mobile-cta-wrapper">

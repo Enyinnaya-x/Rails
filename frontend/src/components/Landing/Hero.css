@@ -319,6 +319,19 @@
     transform:translateY(-2px);
 }
 
+/* .dashboard-preview-image {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  min-height: 200px;
+  object-fit: contain;
+}
+
+.dashboard-main-container {
+  width: 100%;
+  min-height: 300px;
+} */
 /* CSS Floating Animations System */
 @keyframes float1 {
   0%, 100% { transform: translateY(0) rotate(0deg); }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import dashboardPreview from "../../assets/dashboard-preview.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
@@ -50,8 +51,11 @@ export default function Hero() {
             
             {/* Main Dashboard Placeholder Container */}
             <div className="dashboard-main-container">
-              {/* Subtle grid pattern inside */}
-              <div className="dashboard-pattern"></div>
+              <img
+                src={dashboardPreview}
+                alt="Rails HR dashboard"
+                className="dashboard-preview-image"
+              />
             </div>
 
             {/* Premium Floating Contextual Cards */}

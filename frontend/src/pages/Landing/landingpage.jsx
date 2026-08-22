@@ -1,25 +1,28 @@
-import Hero from "../../components/Landing/hero";
+import Hero from "../../components/Landing/Hero";
 import Navbar from "../../components/Landing/Navbar";
-import Features from "../../components/Landing/features";
-import FeaturesCard from "../../components/Landing/FeatureCard";
-import Stats from "../../components/Landing/stats";
-import HowItWorks from "../../components/Landing/howitworks";
+import Features from "../../components/Landing/Features";
+import FeatureCard from "../../components/Landing/FeatureCard";
+import Stats from "../../components/Landing/Stats";
+import HowItWorks from "../../components/Landing/HowItWorks";
+import Pricing from "../../components/Landing/Pricing";
 import CTA from "../../components/Landing/CTA";
+import Contact from "../../components/Landing/Contact";
 import Footer from "../../components/Landing/Footer";
 
-function landingPage() {
+function LandingPage() {
   return (
     <>
       <Navbar />
       <Hero />
-      <Stats/>
+      <Stats />
       <Features />
-      <featureCard/>
-      <HowItWorks/>
-      <CTA/>
-      <Footer/>
+      <HowItWorks />
+      <Pricing />
+      <CTA />
+      <Contact />
+      <Footer />
     </>
   );
 }
 
-export default landingPage;
+export default LandingPage;

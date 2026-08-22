@@ -100,23 +100,44 @@
 }
 
 /* Primary Button Design */
-.btn-register {
-  font-family: var(--font-sans);
-  background: #0564FF;
-  color: #ffffff;
-  border-radius: 12px;
-  padding: 14px 22px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+.btn-register{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    background:#0564FF;
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:700;
+    font-size:14px;
+
+    transition:.25s ease;
+}
+
+.btn-register:hover{
+    background:#0452D6;
+    transform:translateY(-2px);
 }
 
 .btn-register:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
+}
+.link-signin{
+    color:#111827;
+    text-decoration:none;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.link-signin:hover{
+    color:#0564FF;
 }
 
 .mobile-cta-wrapper {

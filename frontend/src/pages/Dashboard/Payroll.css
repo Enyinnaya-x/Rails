@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-rails: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-input: #EFF3F8;
+  --bg-header-row: #EFF4FA;
+  --blue-primary: #0564FF;
+  --blue-primary-hover: #034ECC;
+  --text-dark: #111827;
+  --text-muted: #6B7280;
+  --border-subtle: #E5E7EB;
+}
+
+.payroll-page-wrapper {
+  font-family: var(--font-rails);
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+/* Header & Actions */
+.payroll-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.payroll-page-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.payroll-page-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 4px 0 0 0;
+}
+
+.header-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.count-pill-badge {
+  background-color: #F0EEFF;
+  color: #6366F1;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.cta-primary-pill {
+  background-color: var(--blue-primary);
+  color: #FFFFFF;
+  border: none;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  font-family: var(--font-rails);
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(5, 100, 255, 0.25);
+  white-space: nowrap;
+}
+
+.cta-primary-pill:hover {
+  background-color: var(--blue-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Main Integrated Outer Card */
+.payroll-main-card {
+  background: #FFFFFF;
+  border-radius: 28px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.03);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Embedded Card Toolbar */
+.card-toolbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.search-pill-input {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-input);
+  border-radius: 9999px;
+  padding: 0 18px;
+  width: 320px;
+  height: 46px;
+  transition: all 0.2s ease;
+}
+
+.search-pill-input:focus-within {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 2px var(--blue-primary);
+}
+
+.search-pill-input input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-rails);
+  font-size: 14px;
+  width: 100%;
+  color: var(--text-dark);
+}
+
+.search-pill-input .search-icon {
+  color: #9CA3AF;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.card-filters-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pill-dropdown-select {
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  font-family: var(--font-rails);
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%3C6B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  transition: all 0.2s ease;
+}
+
+.pill-dropdown-select:hover {
+  background-color: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+.pill-action-btn {
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  font-family: var(--font-rails);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-action-btn:hover {
+  background-color: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+/* Selected Payroll Detail */
+.selected-payroll-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #F8FAFF 0%, #FFFFFF 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.selected-payroll-label {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.selected-payroll-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.selected-payroll-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Tablet & Mobile Responsiveness Breakpoints */
+@media (max-width: 768px) {
+  .payroll-page-wrapper {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .payroll-main-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .payroll-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cta-primary-pill {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .search-pill-input {
+    width: 100%;
+  }
+
+  .card-filters-group {
+    width: 100%;
+  }
+
+  .pill-dropdown-select {
+    flex: 1;
+  }
+}

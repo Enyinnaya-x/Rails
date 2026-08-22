@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #0564FF;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --border-light: #E5E7EB;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+.employees-container {
+  font-family: var(--font-sans);
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.employees-table-card {
+  background: #FFFFFF;
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.employees-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.employees-heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.employees-heading {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.employees-subheading {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.employees-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.employee-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 9999px;
+  background: #0564FF;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(5, 100, 255, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.employee-add-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(5, 100, 255, 0.2);
+}
+
+.employee-count-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  background: #EEF4FF;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .employees-container {
+    padding: 12px;
+  }
+
+  .employees-table-card {
+    padding: 14px;
+    border-radius: 18px;
+    gap: 12px;
+  }
+
+  .employees-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .employees-page-actions {
+    width: 100%;
+  }
+
+  .employee-add-btn,
+  .employee-count-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}

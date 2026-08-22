@@ -2,6 +2,7 @@
 
 :root {
   --primary: #0564FF;
+  --accent: #0564FF;
   --text: #111827;
   --muted: #6B7280;
   --border: #E5E7EB;
@@ -12,16 +13,42 @@
 .topbar {
   font-family: var(--font-sans);
   background-color: var(--bg-topbar);
-  padding:14px 28px;
+  padding: 18px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
-  /* box-shadow:0 1px 0 #e7e3e3; */
+  gap: 16px;
 }
 
-/* Greeting Section */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hidden by default on desktop */
+.topbar-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background-color: #F9FAFB;
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.topbar-menu-btn:hover {
+  background-color: #F3F4F6;
+  border-color: #D1D5DB;
+}
+
 .topbar-welcome {
   display: flex;
   flex-direction: column;
@@ -43,28 +70,26 @@
   margin: 0;
 }
 
-/* Right Side Wrapper */
 .topbar-right {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* Pill-shaped Search Input */
 .topbar-search {
   display: flex;
   align-items: center;
   background-color: #F3F4F6;
   border-radius: 9999px;
   padding: 0 16px;
-  width: 260px;
+  width: 280px;
   height: 42px;
   transition: all 0.2s ease;
 }
 
 .topbar-search:focus-within {
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 2px #0564FF;
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
 .topbar-search input {
@@ -86,7 +111,6 @@
   flex-shrink: 0;
 }
 
-/* Notification Button with Pill Badge */
 .notification-btn {
   position: relative;
   width: 42px;
@@ -110,7 +134,7 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  background-color: #0564FF;
+  background-color: var(--accent);
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;
@@ -120,7 +144,6 @@
   line-height: 1;
 }
 
-/* Divider */
 .topbar-divider {
   width: 1px;
   height: 28px;
@@ -128,7 +151,6 @@
   margin: 0 4px;
 }
 
-/* Profile Section */
 .topbar-user {
   display: flex;
   align-items: center;
@@ -177,18 +199,36 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(5, 100, 255, 0.1);
-  color: var(--primary);
+  color: var(--accent);
   font-weight: 700;
   font-size: 14px;
 }
 
-/* Responsive Rules */
+
 @media (max-width: 868px) {
   .topbar {
+    padding: 16px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 16px;
-    padding: 20px 16px;
+  }
+
+  .topbar-left {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Show hamburger button only on mobile screen widths */
+  .topbar-menu-btn {
+    display: flex;
+  }
+
+  .welcome-title {
+    font-size: 18px;
+  }
+
+  .welcome-subtitle {
+    font-size: 12px;
   }
 
   .topbar-right {
@@ -197,6 +237,7 @@
   }
 
   .topbar-search {
-    width: 100%;
+    flex: 1;
+    width: auto;
   }
 }

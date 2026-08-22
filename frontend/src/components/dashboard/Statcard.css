@@ -39,11 +39,11 @@
   flex-shrink: 0;
 }
 
-/* Icon Variations
+/* Icon Variations */
 .stat-icon-wrapper.blue {
   background-color: #EEF4FF;
-  /* color: var(--primary); */
- */
+  color: #0564FF;
+}
 
 .stat-icon-wrapper.blue-light {
   background-color: #E0EDFF;
@@ -52,6 +52,11 @@
 
 .stat-icon-wrapper.soft-blue {
   background-color: #F0F6FF;
+  color: #0564FF;
+}
+
+.stat-icon-wrapper.purple {
+  background-color: #EEF4FF;
   color: #0564FF;
 }
 

@@ -215,7 +215,7 @@
 }
 
 /* Bottom Nav Link */
-.form-footer-text {
+/* .form-footer-text {
   text-align: center;
   font-size: 14px;
   color: var(--muted);
@@ -226,6 +226,23 @@
   color: var(--primary);
   font-weight: 700;
   text-decoration: none;
+} */
+.link-signin {
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+.link-signin a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+.link-signin:hover {
+  text-decoration: underline;
 }
 
 .form-footer-text a:hover {

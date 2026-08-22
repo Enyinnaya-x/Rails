@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,21 +17,28 @@ export default function Navbar() {
 
         {/* Clean, Numberless Navigation Links */}
         <div className={`nav-menu ${isOpen ? 'is-active' : ''}`}>
-          <a href="#features" className="nav-link">Features</a>
-          <a href="#solutions" className="nav-link">Solutions</a>
-          <a href="#pricing" className="nav-link">Pricing</a>
-          <a href="#contact" className="nav-link">Contact</a>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
           
           {/* Mobile Primary Action */}
           <div className="mobile-cta-wrapper">
-            <button className="btn-register">Register Company</button>
+            <Link to="/signup" className="btn-register">
+              Register Company
+            </Link>
           </div>
         </div>
 
         {/* Desktop Interface Controls */}
         <div className="nav-actions">
-          <a href="#signin" className="link-signin">Sign In</a>
-          <button className="btn-register">Register Company</button>
+          {/* <Link to="/login" className="link-signin">
+            Sign In
+          </Link> */}
+
+          <Link to="/signup" className="btn-register">
+            Register Company
+          </Link>
         </div>
 
         {/* Modern Minimal Toggle Button */}

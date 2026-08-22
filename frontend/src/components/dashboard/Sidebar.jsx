@@ -1,66 +1,76 @@
-import React, { useState } from 'react';
-import { 
-  LayoutDashboard, 
-  Users, 
-  UserPlus, 
-  Wallet, 
-  FileText, 
-  Clock, 
-  Calendar, 
-  Folder, 
-  User, 
-  Settings, 
-  HelpCircle 
+import React from 'react';
+import {
+  LayoutDashboard,
+  Users,
+  Wallet,
+  BarChart3,
+  MessageSquare,
+  User,
+  Settings,
+  X,
 } from 'lucide-react';
 import './Sidebar.css';
+import { NavLink } from "react-router-dom";
 
-// Core operational navigation
 const mainNavItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'employees', label: 'Employees', icon: Users },
-  { id: 'hiring', label: 'Hiring', icon: UserPlus },
-  { id: 'payroll', label: 'Payroll', icon: Wallet },
-  { id: 'reports', label: 'Reports', icon: FileText },
-  { id: 'attendance', label: 'Attendance', icon: Clock },
-  { id: 'time-off', label: 'Time Off', icon: Calendar },
-  { id: 'files', label: 'Files', icon: Folder },
+  {
+    label: "Dashboard",
+    icon: LayoutDashboard,
+    path: "/dashboard",
+  },
+  {
+    label: "Employees",
+    icon: Users,
+    path: "/dashboard/users",
+  },
+  {
+    label: "Payroll",
+    icon: Wallet,
+    path: "/dashboard/payroll",
+  },
+  {
+    label: "Reports",
+    icon: BarChart3,
+    path: "/dashboard/reports",
+  },
+  {
+    label: "Messaging",
+    icon: MessageSquare,
+    path: "/dashboard/messaging",
+  },
 ];
 
-// Secondary profile & system settings
 const secondaryNavItems = [
-  { id: 'profile', label: 'Profile', icon: User },
-  { id: 'settings', label: 'Settings', icon: Settings },
-  { id: 'help', label: 'Help', icon: HelpCircle },
+  {
+    label: "Profile",
+    icon: User,
+    path: "/dashboard/profile",
+  },
+  {
+    label: "Settings",
+    icon: Settings,
+    path: "/dashboard/settings",
+  },
 ];
 
-export default function Sidebar({ activeTab, onTabChange }) {
-  const [internalActiveTab, setInternalActiveTab] = useState('dashboard');
-
-  const currentActive = activeTab ?? internalActiveTab;
-
-  const handleSelect = (id) => {
-    setInternalActiveTab(id);
-    if (onTabChange) {
-      onTabChange(id);
-    }
-  };
-
+export default function Sidebar({ isOpen = true, onClose }) {
   const renderNavList = (items) => (
     <ul className="sidebar-nav-list">
       {items.map((item) => {
         const IconComponent = item.icon;
-        const isActive = currentActive === item.id;
 
         return (
-          <li key={item.id}>
-            <button
-              type="button"
-              className={`sidebar-nav-item ${isActive ? 'active' : ''}`}
-              onClick={() => handleSelect(item.id)}
+          <li key={item.path}>
+            <NavLink
+              to={item.path}
+              onClick={onClose}
+              className={({ isActive }) =>
+                `sidebar-nav-item ${isActive ? "active" : ""}`
+              }
             >
               <IconComponent size={18} className="sidebar-nav-icon" />
               <span className="sidebar-nav-label">{item.label}</span>
-            </button>
+            </NavLink>
           </li>
         );
       })}
@@ -68,15 +78,16 @@ export default function Sidebar({ activeTab, onTabChange }) {
   );
 
   return (
-    <aside className="sidebar">
-      {/* Brand Header */}
+    <aside className={`sidebar ${isOpen ? "sidebar-open" : "sidebar-closed"}`}>
       <div className="sidebar-header">
         <a href="/" className="sidebar-logo">
           Rails<span className="logo-dot">.</span>
         </a>
+        <button className="sidebar-close-btn" onClick={onClose} aria-label="Close sidebar" type="button">
+          <X size={18} />
+        </button>
       </div>
 
-      {/* Navigation Grouping */}
       <div className="sidebar-content">
         <nav className="sidebar-section">
           {renderNavList(mainNavItems)}

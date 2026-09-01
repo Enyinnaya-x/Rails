@@ -14,16 +14,17 @@ import DashboardHome from "./pages/Dashboard/DashboardHome";
 import Users from "./pages/Dashboard/Users";
 import Payroll from "./pages/Dashboard/Payroll";
 import Messaging from "./pages/Dashboard/Messaging";
-// import RegisterUsers from "./pages/Dashboard/RegisterUsers";
 import Settings from "./pages/Dashboard/Settings";
 import Reports from "./pages/Dashboard/Reports";
+
+// Profile
+import Profile from "./pages/Profiles/profile";
 
 function App() {
   const [showAddEmployee, setShowAddEmployee] = useState(false);
 
   return (
     <BrowserRouter>
-
       <Routes>
 
         {/* Landing */}
@@ -37,7 +38,9 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <DashboardLayout onAddEmployee={() => setShowAddEmployee(true)} />
+            <DashboardLayout
+              onAddEmployee={() => setShowAddEmployee(true)}
+            />
           }
         >
           <Route
@@ -49,18 +52,17 @@ function App() {
               />
             }
           />
+
           <Route path="users" element={<Users />} />
           <Route path="payroll" element={<Payroll />} />
           <Route path="messaging" element={<Messaging />} />
-          {/* <Route path="register-users" element={<RegisterUsers />} /> */}
           <Route path="settings" element={<Settings />} />
           <Route path="reports" element={<Reports />} />
+          <Route path="profile" element={<Profile />} />
+
         </Route>
 
-        <Route path="/messaging" element={<Messaging />} />
-
       </Routes>
-
     </BrowserRouter>
   );
 }

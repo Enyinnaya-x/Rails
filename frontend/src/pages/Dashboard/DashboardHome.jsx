@@ -8,6 +8,7 @@ import AddEmployee from "./AddEmployee";
 import { Users, Briefcase, Calendar, UserPlus, Download } from "lucide-react";
 import avatar from "../../assets/avatar.svg";
 
+
 import "./DashboardHome.css";
 
 const defaultAvatar = avatar;

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Search, Bell, Menu } from 'lucide-react';
 import './TopBar.css';
+import { useAppContext } from '../../context/AppContext';
 
-export default function TopBar({ user, onToggleSidebar }) {
+export default function TopBar({ onToggleSidebar }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const { user } = useAppContext();
 
   const currentUser = user || {
-    name: 'Victor',
+    firstName: 'Victor',
+    lastName: 'Emmanuel',
     role: 'HR',
     avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'
   };
@@ -24,7 +27,7 @@ export default function TopBar({ user, onToggleSidebar }) {
         </button>
 
         <div className="topbar-welcome">
-          <h1 className="welcome-title">Good Morning {currentUser.name}!</h1>
+          <h1 className="welcome-title">Good Morning {currentUser.firstName || currentUser.name}!</h1>
           <p className="welcome-subtitle">Welcome to Rails HR</p>
         </div>
       </div>
@@ -49,15 +52,15 @@ export default function TopBar({ user, onToggleSidebar }) {
 
         <div className="topbar-user">
           <div className="user-details">
-            <span className="user-role-title">Admin</span>
+            <span className="user-role-title">{currentUser.role}</span>
             <span className="user-department">{currentUser.role}</span>
           </div>
           <div className="user-avatar-container">
             {currentUser.avatarUrl ? (
-              <img src={currentUser.avatarUrl} alt={currentUser.name} className="user-avatar-img" />
+              <img src={currentUser.avatarUrl} alt={`${currentUser.firstName} ${currentUser.lastName}`} className="user-avatar-img" />
             ) : (
               <div className="user-avatar-fallback">
-                {currentUser.name.charAt(0)}
+                {(currentUser.firstName || currentUser.name || 'U').charAt(0)}
               </div>
             )}
           </div>

@@ -1,6 +1,7 @@
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAppContext } from "../../context/AppContext";
 import {
   Mail,
   Phone,
@@ -18,14 +19,27 @@ import "./Profile.css";
 
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
+  const { user, updateUser } = useAppContext();
   const [formData, setFormData] = useState({
-    firstName: "Victor",
-    lastName: "Emmanuel",
-    email: "victor@email.com",
-    phone: "+234 800 000 0000",
-    dob: "1994-05-18",
-    gender: "Male",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    dob: "",
+    gender: "",
   });
+
+  useEffect(() => {
+    if (user) {
+      setFormData((prev) => ({
+        ...prev,
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
+        phone: user.phone || "",
+      }));
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +49,14 @@ export default function Profile() {
   const handleSave = (e) => {
     e.preventDefault();
     setIsEditing(false);
-    console.log("Profile updated:", formData);
+    if (typeof updateUser === "function") {
+      updateUser({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+      });
+    }
   };
 
   return (

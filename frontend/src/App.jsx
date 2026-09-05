@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { AppProvider } from "./context/AppContext";
 
 // Landing
 import LandingPage from "./pages/Landing/landingpage";
@@ -24,7 +25,8 @@ function App() {
   const [showAddEmployee, setShowAddEmployee] = useState(false);
 
   return (
-    <BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
       <Routes>
 
         {/* Landing */}
@@ -63,7 +65,8 @@ function App() {
         </Route>
 
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
 

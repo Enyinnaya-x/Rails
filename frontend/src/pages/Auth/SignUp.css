@@ -192,6 +192,26 @@
   background-color: rgba(5, 100, 255, 0.02);
 }
 
+/* Section Titles and Dividers */
+.section-title {
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.section-title h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.form-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
 /* Primary Button Styling */
 .submit-button {
   height: 54px;

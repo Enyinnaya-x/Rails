@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    // Later you'll validate the login here
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  setError("");
+  setLoading(true);
+
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/api/v1/users/login",
+      {
+        email,
+        password,
+      }
+    );
+
+    console.log("Login successful:", response.data);
+
     navigate("/dashboard");
-  };
+  } catch (error) {
+    console.error("Login failed:", error);
+
+    setError(
+      error.response?.data?.message || "Invalid email or password."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="signin-page">
@@ -44,6 +72,8 @@ export default function Login() {
                 type="email"
                 id="companyEmail"
                 placeholder="admin@company.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -60,12 +90,14 @@ export default function Login() {
                 type="password"
                 id="password"
                 placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-
-            <button type="submit" className="submit-button">
-              Sign In
+            {error && <p className="login-error">{error}</p>}
+            <button type="submit" className="submit-button" disabled={loading}>
+              {loading ? "Signing In..." : "Sign In"}
             </button>
           </form>
 
